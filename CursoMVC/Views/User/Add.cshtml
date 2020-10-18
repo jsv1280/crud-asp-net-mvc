@@ -1,0 +1,37 @@
+﻿@model CursoMVC.Models.ViewModels.UserViewModel
+@{
+    ViewBag.Title = "Agregar Usuario";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("Add", "User", FormMethod.Post, new { role = "form", @class = "" }))
+        {
+            
+            @Html.ValidationMessage("error", new { @class = "text-danger" })
+
+            @Html.LabelFor(d => d.Email)
+            @Html.TextBoxFor(d => d.Email, new { @class = "form-control" })
+            @Html.ValidationMessage("Email", new { @class = "text-danger" })
+
+            @Html.LabelFor(d => d.Password)
+            @Html.PasswordFor(d => d.Password, new { @class = "form-control" })
+            @Html.ValidationMessage("Password", new { @class = "text-danger" })
+
+            @Html.LabelFor(d => d.Password)
+            @Html.PasswordFor(d => d.ConfirmPassword, new { @class = "form-control" })
+            @Html.ValidationMessage("ConfirmPassword", new { @class = "text-danger" })
+
+            @Html.LabelFor(d => d.Edad)
+            @Html.TextBoxFor(d => d.Edad, new { @class = "form-control" })
+            @Html.ValidationMessage("Edad", new { @class = "text-danger" })
+
+
+            <div style="text-align:right">
+                <input type="submit" class="btn btn-success" value="Guardar" />
+            </div>
+        }
+    </div>
+</div>
